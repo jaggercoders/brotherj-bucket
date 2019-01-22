@@ -2,7 +2,6 @@ package com.brotherj.brotherjtest;
 
 import com.brotherj.brotherjclient.FeignClient;
 import feign.Headers;
-import feign.Param;
 import feign.RequestLine;
 
 /**

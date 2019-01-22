@@ -47,12 +47,6 @@ public class FeignClientsConfiguration {
         return new Contract.Default();
     }
 
-//    @Bean
-//    @ConditionalOnMissingBean
-//    public Decoder feignDecoder() {
-//        return new GsonDecoder();
-//    }
-
 
     @Bean
     @ConditionalOnMissingBean
