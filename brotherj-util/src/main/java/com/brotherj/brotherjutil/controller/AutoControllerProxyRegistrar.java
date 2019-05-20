@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.GenerateController;
+package com.brotherj.brotherjutil.controller;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -103,8 +103,8 @@ class AutoControllerProxyRegistrar implements ImportBeanDefinitionRegistrar,
             }
             String path=target.getPackage().getName();
             Class<?> aClass = ControllerBuilder.builder()
-                                               .init()
-                                               .makeClass(path + PACKAGE_SPLIT + className)
+                                               .init(target)
+                                               .makeClass(path.replaceAll("service", "com/brotherj/brotherjutil/controller") + PACKAGE_SPLIT + className)
                                                .addControllerAnnotation(attributes)
                                                .autowiredFiled(target)
                                                .addMethod()

@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.scheduling;
+package com.brotherj.brotherjutil.scheduling;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

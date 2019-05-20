@@ -1,13 +1,9 @@
-package com.brotherj.brotherjserver.scheduling;
+package com.brotherj.brotherjutil.scheduling;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -57,11 +53,25 @@ public class DataConfig {
         return null;
     }
 
-    @Setter
-    @Getter
     private static class DataKeyValue {
         private String configKey;
         private String configValue;
+
+        public String getConfigKey() {
+            return configKey;
+        }
+
+        public void setConfigKey(String configKey) {
+            this.configKey = configKey;
+        }
+
+        public String getConfigValue() {
+            return configValue;
+        }
+
+        public void setConfigValue(String configValue) {
+            this.configValue = configValue;
+        }
     }
 
 

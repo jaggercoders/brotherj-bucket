@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.GenerateController;
+package com.brotherj.brotherjutil.controller;
 
 import org.springframework.context.annotation.Import;
 

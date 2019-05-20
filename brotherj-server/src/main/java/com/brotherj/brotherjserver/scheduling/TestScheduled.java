@@ -1,6 +1,6 @@
 package com.brotherj.brotherjserver.scheduling;
 
-import org.springframework.scheduling.annotation.Scheduled;
+import com.brotherj.brotherjutil.scheduling.DistributeScheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;

@@ -1,6 +1,4 @@
-package com.brotherj.brotherjserver.GenerateController;
-
-import org.springframework.context.annotation.Import;
+package com.brotherj.brotherjutil.controller;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

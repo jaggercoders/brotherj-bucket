@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.GenerateController;
+package com.brotherj.brotherjutil.controller;
 
 import java.util.Arrays;
 

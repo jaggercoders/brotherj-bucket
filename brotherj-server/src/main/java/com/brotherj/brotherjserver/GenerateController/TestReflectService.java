@@ -1,9 +1,7 @@
-package com.brotherj.brotherjserver.GenerateController.test;
+package com.brotherj.brotherjserver.GenerateController;
 
-import com.brotherj.brotherjserver.GenerateController.ProxyMapping;
-import com.brotherj.brotherjserver.GenerateController.ControllerProxy;
+import com.brotherj.brotherjutil.controller.ControllerProxy;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 

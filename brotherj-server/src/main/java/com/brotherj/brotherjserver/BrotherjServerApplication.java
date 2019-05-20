@@ -1,15 +1,14 @@
 package com.brotherj.brotherjserver;
 
-import com.brotherj.brotherjserver.GenerateController.EnableAutoController;
-import com.brotherj.brotherjserver.scheduling.EnableDistributeScheduling;
+import com.brotherj.brotherjutil.scheduling.EnableDistributeScheduling;
+import com.brotherj.brotherjutil.controller.EnableAutoController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableAutoController
 //@EnableScheduling
 @EnableDistributeScheduling
+@EnableAutoController
 public class BrotherjServerApplication {
 
     public static void main(String[] args) {

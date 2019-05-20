@@ -1,6 +1,7 @@
-package com.brotherj.brotherjserver.GenerateController;
+package com.brotherj.brotherjutil.controller;
 
 import javassist.CannotCompileException;
+import javassist.ClassClassPath;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtField;
@@ -13,7 +14,6 @@ import javassist.bytecode.ConstPool;
 import javassist.bytecode.FieldInfo;
 import javassist.bytecode.MethodInfo;
 import javassist.bytecode.ParameterAnnotationsAttribute;
-import javassist.bytecode.SignatureAttribute;
 import javassist.bytecode.annotation.Annotation;
 import javassist.bytecode.annotation.ArrayMemberValue;
 import javassist.bytecode.annotation.EnumMemberValue;
@@ -47,7 +47,7 @@ public class ControllerBuilder {
     public static class Builder {
 
 
-        public static final String RETURN_TYPE="com.brotherj.brotherjserver.GenerateController.JsonResult";
+        public static final String RETURN_TYPE="com.sinochem.energy.technology.dataexchange.api.domain.JsonResult";
 
         private ClassPool pool;
 
@@ -59,8 +59,9 @@ public class ControllerBuilder {
 
         private Class<?> target;
 
-        public Builder init() {
+        public Builder init(Class<?> clazz) {
             this.pool = ClassPool.getDefault();
+            this.pool.insertClassPath(new ClassClassPath(clazz));
             return this;
         }
 
@@ -186,13 +187,11 @@ public class ControllerBuilder {
             CtClass[] ctClasses = new CtClass[parameters.length];
             for (int i = 0; i < parameters.length; i++) {
                 ctClasses[i] = pool.get(parameters[i].getCanonicalName());
-//                ctClasses[i].setGenericSignature("(Ljava/util/List<Lcom/brotherj/brotherjserver/GenerateController/test/BillDetailVo;>;)Ljava/lang/String;");
             }
-//            Class<?> returnType = method.getReturnType();
+            Class<?> returnType = method.getReturnType();
             CtClass response = pool.get(RETURN_TYPE);
             StringBuilder methodBody = new StringBuilder();
             CtMethod ctMethod = new CtMethod(response, methodName, ctClasses, clazz);
-//            ctMethod.setGenericSignature(method.toGenericString());
             ctMethod.setModifiers(Modifier.PUBLIC);
             methodBody.append("{return ").append(RETURN_TYPE).append(".ok(").append(filedName).append(".").append(methodName).append("(");
             StringBuilder returnMethod = new StringBuilder();
@@ -222,8 +221,8 @@ public class ControllerBuilder {
 
         public Class<?> toClass() throws CannotCompileException, IOException {
             try {
-                String writePath=Thread.currentThread().getContextClassLoader().getResource("").getPath();
-                clazz.writeFile(writePath);
+//                String writePath=Thread.currentThread().getContextClassLoader().getResource("").getPath();
+//                clazz.writeFile(writePath);
                 // 通过类加载器加载该CtClass
                 return this.clazz.toClass();
             } finally {

@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.scheduling;
+package com.brotherj.brotherjutil.scheduling;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
 

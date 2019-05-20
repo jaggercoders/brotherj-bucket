@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.GenerateController.test;
+package com.brotherj.brotherjserver.GenerateController;
 
 import lombok.Data;
 

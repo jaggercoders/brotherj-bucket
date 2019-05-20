@@ -1,4 +1,4 @@
-package com.brotherj.brotherjserver.scheduling;
+package com.brotherj.brotherjutil.scheduling;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

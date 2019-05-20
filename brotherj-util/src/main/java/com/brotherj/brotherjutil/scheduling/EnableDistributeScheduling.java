@@ -1,6 +1,6 @@
-package com.brotherj.brotherjserver.GenerateController;
+package com.brotherj.brotherjutil.scheduling;
 
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -13,13 +13,9 @@ import java.lang.annotation.Target;
  *
  * @author wangjie
  */
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE,ElementType.METHOD})
+@Import(DistributeSchedulingConfiguration.class)
 @Documented
-public @interface ProxyMapping {
-
-
-    String path() default "";
-
-    RequestMethod method();
+public @interface EnableDistributeScheduling {
 }
