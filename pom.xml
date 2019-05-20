@@ -17,6 +17,8 @@
     <modules>
         <module>brotherj-client</module>
         <module>brotherj-dependencies</module>
+        <module>brotherj-framework</module>
+        <module>brotherj-util</module>
     </modules>
     <properties>
         <java.version>11</java.version>

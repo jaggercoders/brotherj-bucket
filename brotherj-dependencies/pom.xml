@@ -16,6 +16,9 @@
     <description>brotherj bucket dependencies</description>
     <properties>
         <data-exchange-api.version>0.0.6-1-SNAPSHOT</data-exchange-api.version>
+        <javax.inject.version>1</javax.inject.version>
+        <cglib.version>3.2.10</cglib.version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -33,7 +36,27 @@
                 <artifactId>data-exchange-api</artifactId>
                 <version>${data-exchange-api.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.brotherj</groupId>
+                <artifactId>brotherj-framework</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -9,7 +9,7 @@ import java.lang.annotation.Annotation;
  *
  * @author brotherJ  Wang
  */
-public class FeignClientsRegistrar  extends AbstractRegistrar {
+class FeignClientsRegistrar  extends AbstractRegistrar {
 
     @Override
     protected Class<? extends Annotation> getEnableAnnotationClass() {
