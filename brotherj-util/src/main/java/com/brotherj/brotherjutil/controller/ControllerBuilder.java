@@ -47,7 +47,7 @@ public class ControllerBuilder {
     public static class Builder {
 
 
-        public static final String RETURN_TYPE="com.sinochem.energy.technology.dataexchange.api.domain.JsonResult";
+        public static final String RETURN_TYPE="com.brotherj.brotherjserver.GenerateController.JsonResult";
 
         private ClassPool pool;
 
