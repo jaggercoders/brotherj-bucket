@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-build</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.1.7.RELEASE</version>
         <relativePath />
     </parent>
     <groupId>com.brotherj</groupId>
@@ -19,6 +19,7 @@
         <module>brotherj-dependencies</module>
         <module>brotherj-framework</module>
         <module>brotherj-util</module>
+        <module>statemachine</module>
     </modules>
     <properties>
         <java.version>11</java.version>
@@ -27,6 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud-openfeign.version>2.0.3.BUILD-SNAPSHOT</spring-cloud-openfeign.version>
         <spring-cloud-commons.version>2.0.2.BUILD-SNAPSHOT</spring-cloud-commons.version>
+        <spring-boot-build.version>2.1.9.RELEASE</spring-boot-build.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -53,6 +55,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring-boot-build.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
