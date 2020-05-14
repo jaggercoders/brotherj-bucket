@@ -20,14 +20,16 @@
         <module>brotherj-framework</module>
         <module>brotherj-util</module>
         <module>statemachine</module>
+        <module>brotherj-server</module>
+        <module>brotherj-test</module>
     </modules>
     <properties>
         <java.version>11</java.version>
         <jackson.version>2.7.3</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-cloud-openfeign.version>2.0.3.BUILD-SNAPSHOT</spring-cloud-openfeign.version>
-        <spring-cloud-commons.version>2.0.2.BUILD-SNAPSHOT</spring-cloud-commons.version>
+        <spring-cloud-openfeign.version>2.0.2.RELEASE</spring-cloud-openfeign.version>
+        <spring-cloud-commons.version>2.0.2.RELEASE</spring-cloud-commons.version>
         <spring-boot-build.version>2.1.9.RELEASE</spring-boot-build.version>
     </properties>
     <dependencyManagement>
