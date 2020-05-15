@@ -27,7 +27,7 @@ public class TestJsonSchema {
 
     public static JsonSchema getJsonSchemaFromClasspath(String name) throws Exception {
         JsonSchemaFactory factory = JsonSchemaFactory.getInstance(V7);
-        InputStream is = Thread.currentThread().getContextClassLoader()
+        InputStream is = Class.forName(TestJsonSchema.class.getName())
                                .getResourceAsStream(name);
         return factory.getSchema(is);
     }
@@ -39,8 +39,71 @@ public class TestJsonSchema {
     }
 
     public static void main(String[] args) throws Exception {
-        JsonSchema schema = getJsonSchemaFromStringContent("{\"enum\":[1, 2, 3, 4],\"enumErrorCode\":\"Not in the list\"}");
-        JsonNode node = getJsonNodeFromStringContent("7");
+        JsonSchema jsonSchemaFromClasspath = getJsonSchemaFromClasspath("/additionalProperties.json");
+        JsonSchema schema = getJsonSchemaFromStringContent("{\n" +
+                "    \"definitions\": {},\n" +
+                "    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n" +
+                "    \"$id\": \"http://example.com/root.json\",\n" +
+                "    \"type\": \"object\",\n" +
+                "    \"title\": \"The Root Schema\",\n" +
+                "    \"required\": [\n" +
+                "        \"checked\",\n" +
+                "        \"dimensions\",\n" +
+                "        \"id\",\n" +
+                "        \"name\",\n" +
+                "        \"price\",\n" +
+                "        \"tags\"\n" +
+                "    ],\n" +
+                "    \"properties\": {\n" +
+                "        \"checked\": {\n" +
+                "            \"type\": \"boolean\"\n" +
+                "        },\n" +
+                "        \"dimensions\": {\n" +
+                "            \"type\": \"object\",\n" +
+                "            \"required\": [\n" +
+                "                \"width\",\n" +
+                "                \"height\"\n" +
+                "            ],\n" +
+                "            \"properties\": {\n" +
+                "                \"width\": {\n" +
+                "                    \"type\": \"integer\"\n" +
+                "                },\n" +
+                "                \"height\": {\n" +
+                "                    \"type\": \"integer\"\n" +
+                "                }\n" +
+                "            }\n" +
+                "        },\n" +
+                "        \"id\": {\n" +
+                "            \"type\": \"integer\"\n" +
+                "        },\n" +
+                "        \"name\": {\n" +
+                "            \"type\": \"string\"\n" +
+                "        },\n" +
+                "        \"price\": {\n" +
+                "            \"type\": \"number\"\n" +
+                "        },\n" +
+                "        \"tags\": {\n" +
+                "            \"type\": \"array\",\n" +
+                "            \"items\": {\n" +
+                "                \"type\": \"string\"\n" +
+                "            }\n" +
+                "        }\n" +
+                "    }\n" +
+                "}");
+        JsonNode node = getJsonNodeFromStringContent("{\n" +
+                "    \"checked\": false,\n" +
+                "    \"dimensions\": {\n" +
+                "        \"width\": 5,\n" +
+                "        \"height\": 10\n" +
+                "    },\n" +
+                "    \"id\": 1,\n" +
+                "    \"name\": \"A green door\",\n" +
+                "    \"price\": 12.5,\n" +
+                "    \"tags\": [\n" +
+                "        \"home\",\n" +
+                "        \"green\"\n" +
+                "    ]\n" +
+                "}");
         Set<ValidationMessage> errors = schema.validate(node);
         System.out.println(errors);
     }
