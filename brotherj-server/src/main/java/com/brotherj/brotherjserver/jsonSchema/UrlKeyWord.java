@@ -14,12 +14,12 @@ import com.networknt.schema.ValidationContext;
  */
 public class UrlKeyWord extends AbstractKeyword {
 
-    public UrlKeyWord(String value) {
+    public UrlKeyWord() {
         super("byUrlCheck");
     }
 
     @Override
     public JsonValidator newValidator(String schemaPath, JsonNode schemaNode, JsonSchema parentSchema, ValidationContext validationContext) throws JsonSchemaException, Exception {
-        return null;
+         return new UrlValidator(schemaPath,schemaNode,parentSchema,getValue(),validationContext);
     }
 }
